@@ -31,7 +31,13 @@ if (CURL_FOUND)
             CURL::libcurl
     )
 endif()
-
+if (OPENSSL_FOUND)
+    target_link_libraries(app
+        PRIVATE
+            OpenSSL::applink
+            OpenSSL::Crypto
+    )
+endif()
 
 
 if (DEFINED BACKTRACE_DEFS)

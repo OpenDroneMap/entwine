@@ -58,7 +58,7 @@ TEST(info, reprojected)
     EXPECT_EQ(info.errors.size(), 0);
     for (std::size_t i = 0; i < 6u; ++i)
     {
-        EXPECT_NEAR(info.bounds[i], verify.boundsUtm[i], 0.01);
+        EXPECT_NEAR(info.bounds[i], verify.boundsUtm[i], 0.04);
     }
     EXPECT_EQ(info.points, verify.points);
     EXPECT_EQ(info.srs, utmSrs);

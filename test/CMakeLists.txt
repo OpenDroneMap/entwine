@@ -23,6 +23,13 @@ macro(ENTWINE_ADD_TEST _name)
                 CURL::libcurl
         )
     endif()
+    if (OPENSSL_FOUND)
+        target_link_libraries(${test-name}
+            PRIVATE
+            OpenSSL::applink
+            OpenSSL::Crypto
+        )
+    endif()
 
     target_include_directories(${test-name}
         PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/unit)
